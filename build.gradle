@@ -41,6 +41,7 @@ version = getGitVersion(project)
 group = project.maven_group
 
 repositories {
+	mavenLocal()
 	maven {
 		url = "https://api.modrinth.com/maven"
 	}
@@ -62,7 +63,7 @@ dependencies {
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.
 
-	modImplementation "maven.modrinth:sodium:mc${project.sodium_minecraft_version}-${project.sodium_version}"
+	modImplementation "me.jellysquid.mods:sodium:${project.sodium_version}+mc${project.sodium_minecraft_version}"
 }
 
 processResources {
